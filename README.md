@@ -6,13 +6,13 @@
 This course project develops an autonomous system for emergency vehicle response. The system processes acoustic and photonic data to detect emergency vehicles, estimate their motion, and determine the real-time ego-response (stop or go).
 
 ### Objectives
-- Data Acquisition: Capture ambient audio using on-board microphone and strobing lights using the ESP32 photoresistor.
-- Signal Processing: Transform raw audio waveforms from time-domain to time-frequency representations using with Short-Time Fourier Transform (STFT).
+- Data Acquisition: Capture ambient audio using an on-board microphone and strobing lights using the ESP32 photoresistor.
+- Signal Processing: Transform raw audio waveforms from time-domain to time-frequency representations using Short-Time Fourier Transform (STFT).
 - Siren Classification: Ingest time-frequency representations for binary classification on emergency vehicle sirens (ambulances, fire trucks, police cars) versus non-emergency acoustic signals.
 - Strobing Light Classification: Model and recognize the simple, fixed flicker frequency.
 - Multimodal Data Fusion: Integrate siren and strobing light classifications to verify the presence of an emergency vehicle.
-- Motion State Estimation: Tracked changes in the slope of the dominant audio frequency over time to estimate an approaching, centered, or passing state.
-- Autonomous Decision Making: Apply simple decision tree using classifications and estimated motion states to determine "Stop" or "Go" action.
+- Motion State Estimation: Track changes in the slope of the dominant audio frequency over time to estimate an approaching, centered, or passing state.
+- Autonomous Decision Making: Apply a simple decision tree using classifications and estimated motion states to determine "Stop" or "Go" action.
 
 ### System Inputs & Sensor Integration
 The system acquires environmental data using two main hardware sensors:
@@ -77,7 +77,7 @@ pip install torch numpy scipy scikit-learn librosa sounddevice soundfile pyseria
 Run the training pipeline for the neural network using:
 
 ```bash
-python -m src.nn.main
+python -m src.nn.train
 ```
 
 ### Main execution
@@ -97,7 +97,7 @@ Source repositories for training and evaluation data:
 - **ESC-50:** Environmental Sound Classification repository, filtering for categories like *Siren*, *Car Horn*, and *Car Engine* [[GitHub Link](https://github.com/karolpiczak/ESC-50)]
 
 ### Neural Network Architecture
-- Illustration of architecture can be found in [figures/ppt_figures.png](figures/ppt_figures.png)
+- An illustration of the architecture can be found in [figures/ppt_figures.png](figures/ppt_figures.png)
 
 ### Model Evaluation
 - **Classification Metrics**: Accuracy, Precision, Recall, F1-score
